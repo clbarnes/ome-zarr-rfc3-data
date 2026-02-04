@@ -1,0 +1,18 @@
+[project]
+name = "ome-zarr-rfc3-data"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "imageio>=2.37.2",
+    "numpy>=2.4.2",
+    "scipy>=1.17.0",
+    "zarr>=3.1.5",
+]
+
+[dependency-groups]
+dev = [
+    "mypy>=1.19.1",
+    "ruff>=0.14.14",
+]
