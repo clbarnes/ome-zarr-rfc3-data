@@ -16,3 +16,6 @@ Generate OME-Zarr datasets which are illegal before RFC-3 Unrestricted Dimension
 - [Install uv](https://docs.astral.sh/uv/getting-started/installation/)
 - `uv run main.py`
 - See the data/ directory for outputs
+
+You can customise the OME-Zarr version string and output directory with command line arguments;
+see `uv run main.py --help`.

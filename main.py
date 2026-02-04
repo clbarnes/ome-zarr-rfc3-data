@@ -35,9 +35,12 @@ def eprint(*args, **kwargs):
 
 
 class DataWriter:
-    def __init__(self, force=False, ome_zarr_version=DEFAULT_OME_ZARR_VERSION) -> None:
+    def __init__(
+        self, force=False, ome_zarr_version=DEFAULT_OME_ZARR_VERSION, data_dir=data_dir
+    ) -> None:
         self.force = force
         self.ome_zarr_version = ome_zarr_version
+        self.data_dir = data_dir
 
     def path_exists(self, path: Path) -> bool:
         if path.exists():
@@ -53,7 +56,7 @@ class DataWriter:
 
         https://docs.scipy.org/doc/scipy/reference/generated/scipy.datasets.electrocardiogram.html#scipy.datasets.electrocardiogram
         """
-        zarr_root = data_dir / "ecg_1d.ome.zarr"
+        zarr_root = self.data_dir / "ecg_1d.ome.zarr"
         if self.path_exists(zarr_root):
             return None
 
@@ -113,7 +116,7 @@ class DataWriter:
         return ecg
 
     def get_astronaut_xcy(self):
-        zarr_root = data_dir / "astronaut_xcy.ome.zarr"
+        zarr_root = self.data_dir / "astronaut_xcy.ome.zarr"
         if self.path_exists(zarr_root):
             return None
 
@@ -159,7 +162,7 @@ class DataWriter:
         return arr
 
     def calc_ramp_6d(self):
-        zarr_root = data_dir / "ramp_6d.ome.zarr"
+        zarr_root = self.data_dir / "ramp_6d.ome.zarr"
         if self.path_exists(zarr_root):
             return None
 
@@ -289,10 +292,16 @@ def main():
         help=f"OME-Zarr version string to use, default '{DEFAULT_OME_ZARR_VERSION}'",
         default=DEFAULT_OME_ZARR_VERSION,
     )
+    parser.add_argument(
+        "--data-dir",
+        "-d",
+        type=Path,
+        help="data directory to store OME-Zarr datasets",
+        default=data_dir,
+    )
     args = parser.parse_args()
 
-    w = DataWriter(args.force, args.ome_zarr_version)
-
+    w = DataWriter(args.force, args.ome_zarr_version, args.data_dir)
     w.get_astronaut_xcy()
     w.get_ecg()
     # w.calc_trig_6d(force=args.force)
