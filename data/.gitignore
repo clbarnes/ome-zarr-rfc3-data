@@ -1,1 +1,4 @@
-*.zarr/
+ecg_1d.ome.zarr/
+astronaut_xcy.ome.zarr/
+ramp_6d.ome.zarr/
+trig_6d.ome.zarr/
