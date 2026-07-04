@@ -22,7 +22,7 @@ eg:
 
     uv run ebsd-reduce.py \
             ~/Downloads/CP-Ti-abnormal-grains-spec-1-site-5.h5oina \
-            data/CP-Ti-abnormal-grains-reduced-144x.zarr//s0
+            data/CP-Ti-abnormal-grains-reduced-144x.zarr/s0
 
 """
 import argparse
