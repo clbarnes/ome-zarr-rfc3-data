@@ -10,8 +10,8 @@
 # ]
 # ///
 """
-This script downscales original EBSD data provided by Jie Luo,
-Monash University.
+This script downscales original EBSD data provided by Jie Luo, Ethan Sprague,
+and Michael Preuss from Monash University.
 
 Original h5oina[1]_ file available at:
 
