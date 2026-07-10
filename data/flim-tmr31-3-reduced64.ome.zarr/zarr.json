@@ -89,7 +89,7 @@
           "color": "FF00FF",
           "family": "linear",
           "inverted": false,
-          "label": ""phospholipaseC-mKate2",
+          "label": "phospholipaseC-mKate2",
           "window": {
             "min": 0,
             "max": 255,
